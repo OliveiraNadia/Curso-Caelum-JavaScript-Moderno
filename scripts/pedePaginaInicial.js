@@ -6,14 +6,15 @@
 // Tipo coercing
 // if(paginalInicial != null && paginalInicial == '')
 
-const aceitouSalvar = JSON.parse(localStorage.getItem("aceitouSalvar"))
+import aceitouSalvar from './aceitouSalvar.js'
 
-if(aceitouSalvar === null){
+
+if(aceitouSalvar === null || aceitouSalvar === true){
 
   let paginaInicial = localStorage.getItem("paginaInicial")
 
 if(!paginaInicial){
-  paginaInicial = prompt("Escolha a página Inicial");
+    paginaInicial = prompt("Escolha a página Inicial");
 }
 
 if(paginaInicial)
@@ -33,8 +34,7 @@ if(paginaInicial)
 
      localStorage.setItem("paginaInicial", paginaInicial)
 
-}
-
+    }
 }
 
 
