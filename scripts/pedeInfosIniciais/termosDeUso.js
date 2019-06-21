@@ -20,7 +20,7 @@ if(!aceitouTermos){
    alert(nome + 'Não podemos continuar juntos')
    window.close()
 }else{
-    localStorage.setItem("aceitou os termos", aceitouTermos)
+    localStorage.setItem("aceitouTermos", aceitouTermos)
 }
 
 }

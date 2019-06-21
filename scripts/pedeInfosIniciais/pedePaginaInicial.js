@@ -6,14 +6,14 @@
 // Tipo coercing
 // if(paginalInicial != null && paginalInicial == '')
 
-import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
-import paginaInicial from '/scripts/storage/paginaInicial.js'
+import {aceitouSalvar as storageAceitouSalvar} from '/scripts/storage/aceitouSalvar.js'
+import {paginaInicial, setPaginaInicial} from '/scripts/storage/paginaInicial.js'
 
 
-
-if(aceitouSalvar === null || aceitouSalvar === true){
+if(storageAceitouSalvar === null || storageAceitouSalvar === true){
 
 let paginaInicialDefault = paginaInicial
+
 if(!paginaInicialDefault){
     paginaInicialDefault = prompt("Escolha a página Inicial");
 }
@@ -33,7 +33,7 @@ if(paginaInicialDefault)
 
      $inputEndereco.value = paginaInicialDefault
 
-     localStorage.setItem("paginaInicial", paginaInicialDefault)
+     setPaginaInicial(paginaInicialDefault)
 
     }
 }

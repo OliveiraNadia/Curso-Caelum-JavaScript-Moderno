@@ -8,10 +8,10 @@ O unico jeito de criar escopo <ECM AScript2018 ES9
 Ativando o mode estrito / strict mode -> módulo
 */
 
-import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
+import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
 
 
-if (aceitouSalvar === null) {
+if (storageAceitouSalvar === null) {
 
     //shadowing/sombra no módulo
     //redeclerando 
@@ -20,8 +20,10 @@ if (aceitouSalvar === null) {
     if (!aceitouSalvar) {
         alert("Você pode mudar isso na página de configurações")
     }
-    localStorage.setItem("aceitouSalvar", aceitouSalvar);
+    storageAceitouSalvar.setAceitouSalvar(aceitouSalvar)
 }
+
+//export default aceitouSalvar
 
 
 

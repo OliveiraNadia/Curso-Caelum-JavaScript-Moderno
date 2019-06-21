@@ -1,8 +1,21 @@
 //Recebe o que foi digitado na telapagina
 
-import paginaInicial from '/scripts/storage/paginaInicial.js'
-import aceitouSalvar from '/scripts/storage/aceitouSalvar.js'
+import * as storagePaginaInicial  from '/scripts/storage/paginaInicial.js'
+import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
 
-$inputPaginaInicial.value = paginaInicial
+$inputPaginaInicial.value = storagePaginaInicial.paginaInicial
+$inputPermitiuSalvar.checked = storageAceitouSalvar.aceitouSalvar
 
-$inputPermitiuSalvar.checked = aceitouSalvar
+
+//o que vai ser executado quando o evento de click acontecer ou ao clicar
+$botaoSalvar.onclick = salvar
+
+
+//função de calback
+//hoistig
+//função é um tipo dado
+//exe
+function salvar(){
+    storageAceitouSalvar.setAceitouSalvar($inputPermitiuSalvar.checked)
+    storagePaginaInicial.setPaginaInicial($inputPaginaInicial.value)
+}
