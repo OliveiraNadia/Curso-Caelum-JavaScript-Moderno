@@ -11,7 +11,7 @@ Ativando o mode estrito / strict mode -> módulo
 import * as storageAceitouSalvar from '/scripts/storage/aceitouSalvar.js'
 
 
-if (storageAceitouSalvar === null) {
+if (storageAceitouSalvar.aceitouSalvar === null) {
 
     //shadowing/sombra no módulo
     //redeclerando 
@@ -20,7 +20,13 @@ if (storageAceitouSalvar === null) {
     if (!aceitouSalvar) {
         alert("Você pode mudar isso na página de configurações")
     }
-    storageAceitouSalvar.setAceitouSalvar(aceitouSalvar)
+   
+    const funcaoSalvar = aceitouSalvar === true
+    ? storageAceitouSalvar.setAceitou
+    : storageAceitouSalvar.setNaoAceitou
+
+    funcaoSalvar()
+
 }
 
 //export default aceitouSalvar
