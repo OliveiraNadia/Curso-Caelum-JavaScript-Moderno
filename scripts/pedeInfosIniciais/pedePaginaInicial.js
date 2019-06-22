@@ -23,12 +23,7 @@ if(!paginaInicialDefault){
 if(paginaInicialDefault)
 {
     const enderecoCompleto = formataEndereco(paginaInicialDefault)
-
-     $janelaPrincipal.src = enderecoCompleto
-
-     $inputEndereco.value = enderecoCompleto
-
-     setPaginaInicial(paginaInicialDefault)
+     setPaginaInicial(enderecoCompleto)
 
     }
 }
