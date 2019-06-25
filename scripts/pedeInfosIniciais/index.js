@@ -1,3 +1,3 @@
-import "./termosDeUso.js"
-import "./pedeAceitouSalvar.js"
-import "./pedePaginaInicial.js"
+import './termosDeUso.js'
+import './pedeAceitouSalvar.js'
+import './pedePaginaInicial.js'
