@@ -1,6 +1,8 @@
 import * as storagePaginaInicial from '/scripts/storage/paginaInicial.js'
 import {formataEndereco} from '/scripts/endereco/formataEndereco.js'
 import { carregar } from '/scripts/navegacao/carregar.js'
+import * as historico from '/scripts/navegacao/historico.js'
+
 
 //TODO criar módulo pra isso 
 //pagina atual do localStorage
@@ -17,26 +19,26 @@ carregar(enderecoCompleto)
   $janelaPrincipal.addEventListener('load', function salvaPaginaAtual(){
     const endereco  = $janelaPrincipal.contentWindow.location.href
     sessionStorage.setItem('PaginaAtual', endereco);
-    listaSites.push(endereco)
-    posicao ++
+
+    $janelaPrincipal.addEventListener('load', function salvaPaginaAtual(){
+      const endereco = $janelaPrincipal.contentWindow.location.href
+      historico.adiciona(endereco)
+    })
 
   })
-
-  let listaSites = [];
-  let posicao = -1;
-
+  
  $botaoVoltar.addEventListener('click', function(){
-   if(listaSites.length !== 1){
-     posicao = posicao - 1
-     carregar(listaSites[posicao]);
+   const enderecoVolta = historico.volta()
+   if(enderecoVolta !== undefined){
+     carregar(enderecoVolta);
    
    }
  })
 
  $botaoAvancar.addEventListener('click', function(){
-   if(listaSites.length !== 1){
-       posicao = posicao + 1
-       carregar(listaSites[posicao]);
+   const enderecoAvanca = historico.avanca()
+   if(enderecoAvanca !== undefined){
+       carregar(enderecoAvanca);
    }
  })
   
