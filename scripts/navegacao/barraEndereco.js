@@ -1,6 +1,6 @@
 import {carregar} from '/scripts/navegacao/carregar.js'
 import {formataEndereco} from '/scripts/endereco/formataEndereco.js'
-import {Endereco} from '/scripts/endereco/criaEndereco.js'
+import {Endereco} from '/scripts/endereco/Endereco.js'
 
 
 
@@ -36,9 +36,9 @@ function exibeEnderecoResumido(){
 $inputEndereco.addEventListener("keyup", function (evento) {
     const apertouEnter = event.key === "Enter"
     if (apertouEnter) {
-        const enderecoCompleto = formataEndereco($inputEndereco.value)
-        endereco = Endereco(enderecoCompleto)
-        carregar(enderecoCompleto)
+         endereco = new Endereco($inputEndereco.value)
+
+        carregar(endereco)
     }
 
 })
